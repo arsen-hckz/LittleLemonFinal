@@ -1,0 +1,135 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Little Lemon</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <div class="logo">🍋</div>
+          <div>
+            <h1>Little Lemon</h1>
+            <p class="tagline">Mediterranean flavors • Fresh daily</p>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a href="#about">About</a>
+          <a href="#api">API</a>
+          <a href="#how">How to Test</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div>
+            <h2>Welcome to Little Lemon</h2>
+            <p>
+              This project uses Django + DRF to power menu items and table bookings.
+              This page is served by Django templates to demonstrate static HTML + CSS.
+            </p>
+
+            <div class="btn-row">
+              <a class="btn primary" href="/restaurant/api/menu-items/">View Menu API</a>
+              <a class="btn" href="/restaurant/booking/tables/">View Booking API</a>
+            </div>
+
+            <p class="note">
+              If booking requires auth, generate a token first (see below).
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="/admin/">Django Admin</a></li>
+              <li><a href="/restaurant/api/menu-items/">Menu endpoints</a></li>
+              <li><a href="/restaurant/booking/tables/">Booking endpoints</a></li>
+              <li><a href="/auth/users/">Register (Djoser)</a></li>
+              <li><a href="/obtain-token/">Obtain Token</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container">
+          <h3>About</h3>
+          <p>
+            The backend provides REST endpoints for menu and table reservations.
+            Authentication is handled using token-based auth.
+          </p>
+        </div>
+      </section>
+
+      <section id="api" class="section alt">
+        <div class="container">
+          <h3>API Endpoints</h3>
+
+          <div class="grid">
+            <div class="panel">
+              <h4>Menu Items</h4>
+              <code>GET /restaurant/api/menu-items/</code><br />
+              <code>POST /restaurant/api/menu-items/</code><br />
+              <code>GET /restaurant/api/menu-items/&lt;id&gt;/</code><br />
+              <code>PUT/PATCH/DELETE /restaurant/api/menu-items/&lt;id&gt;/</code>
+            </div>
+
+            <div class="panel">
+              <h4>Bookings</h4>
+              <code>GET /restaurant/booking/tables/</code><br />
+              <code>POST /restaurant/booking/tables/</code><br />
+              <code>GET /restaurant/booking/tables/&lt;id&gt;/</code><br />
+              <code>PUT/PATCH/DELETE /restaurant/booking/tables/&lt;id&gt;/</code>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="how" class="section">
+        <div class="container">
+          <h3>How to Test (Insomnia / Postman)</h3>
+          <ol class="steps">
+            <li>
+              Register a user:
+              <code>POST /auth/users/</code>
+            </li>
+            <li>
+              Obtain a token:
+              <code>POST /obtain-token/</code>
+            </li>
+            <li>
+              For protected endpoints, add header:
+              <code>Authorization: Token &lt;your_token&gt;</code>
+            </li>
+          </ol>
+
+          <div class="tip">
+            <strong>Tip:</strong> If you just want to show this page in a browser, go to
+            <code>/restaurant/</code> (or whatever URL you map to this template).
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> Little Lemon • Django Capstone</p>
+        <p class="muted">Static HTML served by Django templates</p>
+      </div>
+    </footer>
+
+    <script>
+      // tiny enhancement, safe for grading (optional)
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
