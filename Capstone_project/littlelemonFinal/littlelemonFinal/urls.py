@@ -20,6 +20,7 @@ from rest_framework.routers import DefaultRouter
 from Restaurant.views import BookingView 
 from rest_framework.authtoken.views import obtain_auth_token
 
+
 router  = DefaultRouter()
 router.register(r'tables',BookingView)
 urlpatterns = [
@@ -29,5 +30,6 @@ urlpatterns = [
     path('auth/', include('djoser.urls')), 
     path('auth/', include('djoser.urls.authtoken')),
     path('obtain-token/',obtain_auth_token), 
+   
 ]
 
