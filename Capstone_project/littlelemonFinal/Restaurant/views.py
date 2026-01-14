@@ -28,3 +28,6 @@ class BookingView(ModelViewSet):
 def msg(request):
     return Response('this is authenticated view')
 
+def restaurant_home(request):
+    return render(request, "index.html")
+

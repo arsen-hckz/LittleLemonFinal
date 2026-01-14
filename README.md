@@ -5,6 +5,7 @@ endpoints to check:
 /obtain-token
 /auth
 /restaurant/api/msg    #test authentication
+/index                 #homepage with static content
 
 
 
