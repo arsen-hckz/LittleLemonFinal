@@ -27,9 +27,9 @@ Send the token as `Authorization: Token <token>`.
 ## Running locally
 
 The project is in `Capstone_project/littlelemonFinal/`. Requires a local
-MySQL server with a database named `my_database`. The database user and
-password are set in `DATABASES` in `littlelemonFinal/settings.py`; they are
-not committed, so fill in your own locally.
+MySQL server. Connection settings come from environment variables:
+`DB_NAME` (default `my_database`), `DB_USER` (default `root`), `DB_PASSWORD`,
+`DB_HOST` (default `127.0.0.1`), `DB_PORT` (default `3306`).
 
 ```sh
 python -m venv venv
